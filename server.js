@@ -1,11 +1,14 @@
 const express = require('express');
+const cors = require('cors');
 const mongoose = require('mongoose');
 const requireDir = require('require-dir')
 
 const app = express();
+app.use(express.json());
+app.use(cors());
 
 //Conexão com o banco
-mongoose.connect('mongodb://localhost:27017/dbfreeler' , 
+mongoose.connect('mongodb://localhost:27017/dbFreeler' , 
 { useNewUrlParser: true, useUnifiedTopology: true } )
 
 requireDir('./src/models')

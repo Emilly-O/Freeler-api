@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const mongoosePaginate = require('mongoose-Paginate');
 
 const JobSchema = new mongoose.Schema({
     title: {
@@ -34,5 +35,7 @@ const JobSchema = new mongoose.Schema({
         default: Date.now,
     }
 })
+
+JobSchema.plugin(mongoosePaginate);
 
 mongoose.model('Job', JobSchema)
